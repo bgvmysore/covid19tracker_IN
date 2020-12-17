@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from appmod.functions import *
+from appmod.functions import getC19
 
 class Ui_Form(object):
     def __init__(self):
