@@ -13,7 +13,6 @@ class getC19:
 			self.data = json.loads(self.data)
 			self.data = self.data["state"]
 			self.statenames = [ i['name'] for i in self.data ]
-			return
 
 		def stateData(self,name):
 			name = name.title()
