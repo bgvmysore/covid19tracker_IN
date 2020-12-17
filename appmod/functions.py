@@ -22,11 +22,3 @@ class getC19:
 			else:
 					indx = 0
 			return self.data[indx]
-			
-
-def mainf():
-	get1 = getC19()
-	kardat = get1.stateData(get1.statenames[0])
-	print(kardat)
-if __name__ == "__main__" :
-		mainf();
