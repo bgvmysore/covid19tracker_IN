@@ -15,8 +15,7 @@ class getC19:
 			self.statenames = list( self.data.keys() )
 
 		def stateData(self,name):
-			name = name.title()
 			if name in self.statenames:
 					return self.data[name]
 			else:
-					return {"NO DATA": (0, 0, 0, 0)}
+					return (0, 0, 0, 0)
