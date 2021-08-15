@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from appmod.functions import *
+from appmod.functions import getC19
 
 class Ui_Form(object):
     def __init__(self):
@@ -16,12 +16,11 @@ class Ui_Form(object):
 
     def filldata(self):
         self.data = self.getdat.stateData(self.combox.currentText())
-        self.actvar.setText(str(self.data['active']))
-        self.curvar.setText(str(self.data['cured']))
-        self.totvar.setText(str(self.data['total']))
-        self.deavar.setText(str(self.data['death']))
-        
-        
+        self.actvar.setText(str(self.data[0]))
+        self.curvar.setText(str(self.data[2]))
+        self.totvar.setText(str(self.data[1]))
+        self.deavar.setText(str(self.data[3]))
+    
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(550, 575)

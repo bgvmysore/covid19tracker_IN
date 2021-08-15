@@ -1,5 +1,8 @@
-import requests
-import json
+from . import webscrapping
+
+# data is dictionary of satename and data as tuple
+# ex: { "StateName1": (ActiveCount, Total, Cured, Deaths), 
+#       "StateName2": (ActiveCount, Total, Cured, Deaths) ... }
 
 class getC19:
 		def __init__(self):
@@ -8,25 +11,11 @@ class getC19:
 
 		def states(self):
 			url = "https://covid19-india-adhikansh.herokuapp.com/states"
-			self.data = requests.get(url)
-			self.data = self.data.text
-			self.data = json.loads(self.data)
-			self.data = self.data["state"]
-			self.statenames = [ i['name'] for i in self.data ]
-			return
+			self.data = webscrapping.scrapeWeb()
+			self.statenames = list( self.data.keys() )
 
 		def stateData(self,name):
-			name = name.title()
 			if name in self.statenames:
-					indx = self.statenames.index(name)
+					return self.data[name]
 			else:
-					indx = 0
-			return self.data[indx]
-			
-
-def mainf():
-	get1 = getC19()
-	kardat = get1.stateData(get1.statenames[0])
-	print(kardat)
-if __name__ == "__main__" :
-		mainf();
+					return (0, 0, 0, 0)
